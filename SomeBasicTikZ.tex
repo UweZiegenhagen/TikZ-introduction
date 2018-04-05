@@ -1,0 +1,149 @@
+%!TEX TS-program = pdflatex
+\documentclass[12pt,english]{beamer}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{babel}
+\usepackage{graphicx}
+\usepackage{csquotes}
+\usepackage{xcolor}
+\usepackage{listings}
+
+
+
+\definecolor{hellgelb}{rgb}{1,1,0.8}
+\definecolor{colKeys}{rgb}{0,0,1}
+\definecolor{colIdentifier}{rgb}{0,0,0}
+\definecolor{colComments}{rgb}{1,0,0}
+\definecolor{colString}{rgb}{0,0.5,0}
+
+\lstset{%
+    float=hbp,%
+    language=[LaTeX]TeX,
+    basicstyle=\ttfamily\small, %
+    identifierstyle=\color{colIdentifier}, %
+    keywordstyle=\color{colKeys}, %
+    stringstyle=\color{colString}, %
+    commentstyle=\color{colComments}, %
+    columns=flexible, %
+    tabsize=2, %
+    frame=single, %
+    extendedchars=true, %
+    showspaces=false, %
+    showstringspaces=false, %
+    numbers=left, %
+    numberstyle=\tiny, %
+    breaklines=true, %
+    backgroundcolor=\color{hellgelb}, %
+    breakautoindent=true, %
+    captionpos=b%,
+    morekeywords={draw}
+}
+
+\lstset{literate=%
+    {Ö}{{\"O}}1
+    {Ä}{{\"A}}1
+    {Ü}{{\"U}}1
+    {ß}{{\ss}}1
+    {ü}{{\"u}}1
+    {ä}{{\"a}}1
+    {ö}{{\"o}}1
+    {~}{{\textasciitilde}}1
+}
+
+
+\usepackage{tikz}
+
+\IfFileExists{plex-sans.sty}{%
+\usepackage[sfdefault]{plex-sans}%
+}{
+% no plex sans
+}
+
+\usetheme[progressbar=frametitle]{metropolis}           % Use metropolis theme
+ 
+\makeatletter
+\setlength{\metropolis@titleseparator@linewidth}{1pt}
+\setlength{\metropolis@progressonsectionpage@linewidth}{1pt}
+\setlength{\metropolis@progressinheadfoot@linewidth}{1pt}
+\makeatother
+
+\title{Some very basic TikZ}
+\author{Dr. Uwe Ziegenhagen}
+\institute{www.uweziegenhagen.de}
+
+\begin{document}
+
+\begin{frame}
+
+\maketitle
+
+\end{frame}
+
+\begin{frame}
+
+\tableofcontents
+
+\end{frame}
+
+\section{History}
+
+\begin{frame}
+\frametitle{History}
+
+\begin{itemize}
+	\item TikZ and PGF were originally developed by Till Tantau together with the Beamer package
+	\item  \TeX\ packages for creating graphics programmatically 
+	\item Aim: create sophisticated graphics in a more or less intuitive way 
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Command and Environment}
+
+\begin{itemize}
+	\item \verb|\usepackage{tikz}|
+	\item \texttt{tikzpicture} environment
+	\item \verb|\tikz| command
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{A Simple Line}
+
+\begin{lstlisting}
+\begin{tikzpicture}
+	\draw (0,0) -- (1,1);
+\end{tikzpicture}
+\end{lstlisting}
+
+\begin{tikzpicture}
+	\draw (0,0) -- (1,1);
+\end{tikzpicture}
+
+Let's add some grid!
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{A Simple Line}
+
+\begin{lstlisting}
+\begin{tikzpicture}
+	\draw[step=1.0,gray,thin] (-1,-1) grid (6,4);
+	\draw (0,0) -- (1,1);
+\end{tikzpicture}
+\end{lstlisting}
+
+\begin{tikzpicture}
+	\draw[step=1.0,gray,thin] (-1,-1) grid (6,4);
+	\draw (0,0) -- (1,1);
+\end{tikzpicture}
+
+Let's add some grid!
+\end{frame}
+
+
+
+\end{document}
