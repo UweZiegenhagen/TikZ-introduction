@@ -105,6 +105,10 @@
 \begin{itemize}
 	\item \verb|\usepackage{tikz}|
 	\item \texttt{tikzpicture} environment
+	\begin{itemize}
+		\item \verb|\begin{tikzpicture}|
+		\item \verb|\end{tikzpicture}|
+	\end{itemize}
 	\item \verb|\tikz| command
 \end{itemize}
 
@@ -115,12 +119,12 @@
 
 \begin{lstlisting}
 \begin{tikzpicture}
-	\draw (0,0) -- (1,1);
+	\draw (0,0) -- (1,1)--(2,0);
 \end{tikzpicture}
 \end{lstlisting}
 
 \begin{tikzpicture}
-	\draw (0,0) -- (1,1);
+	\draw (0,0) -- (1,1)--(2,0);
 \end{tikzpicture}
 
 Let's add some grid!
@@ -132,13 +136,13 @@ Let's add some grid!
 \begin{lstlisting}
 \begin{tikzpicture}
 	\draw[step=1.0,gray,thin] (-1,-1) grid (6,4);
-	\draw (0,0) -- (1,1);
+	\draw (0,0) -- (1,1)--(2,0);
 \end{tikzpicture}
 \end{lstlisting}
 
 \begin{tikzpicture}
-	\draw[step=1.0,gray,thin] (-1,-1) grid (6,4);
-	\draw (0,0) -- (1,1);
+	\draw[step=1.0,green,thin] (-1,-1) grid (6,4);
+	\draw (0,0) -- (1,1)--(2,0);
 \end{tikzpicture}
 
 Let's add some grid!
